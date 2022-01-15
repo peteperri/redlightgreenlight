@@ -12,18 +12,19 @@ public class GameController : MonoBehaviour
 
     public TextMeshProUGUI stopGoText;
     public TextMeshProUGUI statusText;
-    //public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
+    public Animator animator;
     public GameObject player;
-    //private int presses = 0;
+    private int presses = 0;
     private bool coroutineBegun = false;
     private bool stopped = true;
     private bool dead = false;
     public bool won = false;
     public float moveSpeed = 0;
     private float startTime;
-    private readonly Vector2 start = new Vector3(-10.93f, -4);
-    public double maxTime = 10.0;
-    public double minTime = 10.0;
+    private readonly Vector2 start = new Vector3(-8.2f, -3.36f);
+    public double maxTime;
+    public double minTime;
     Random rand = new Random();
     
     void Start()
@@ -34,21 +35,31 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-       
+
+        scoreText.text = "Button Presses: " + presses.ToString();
         double time = rand.NextDouble() * (maxTime - minTime) + minTime;
-        if (!coroutineBegun)
+        if (dead || won)
+        {
+            stopGoText.text = "CONGRATS";
+        }
+        else if (!coroutineBegun)
         {
             coroutineBegun = true;
-            if (!stopped)
+            if (!stopped && !won)
             {
                 StartCoroutine(WaitAndChangeText(time, "GO"));
                 stopped = true;
             }
-            else
+            else if(stopped && !won)
             {
                 StartCoroutine(WaitAndChangeText(time, "STOP"));
                 stopped = false;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !dead && !won)
+        {
+            presses++;
         }
 
         if (Input.GetKey(KeyCode.Space) && !dead && !won)
@@ -62,7 +73,7 @@ public class GameController : MonoBehaviour
             }
             if(!stopped)
             {
-                moveSpeed = 0.1f;
+                moveSpeed = 0.05f;
             }
         }
 
@@ -78,9 +89,25 @@ public class GameController : MonoBehaviour
     {
         if (!won && !dead)
         {
-            yield return new WaitForSeconds((float) time);
-            stopGoText.text = newText;
-            coroutineBegun = false;
+            if (newText.Equals("STOP"))
+            {
+                yield return new WaitForSeconds((float) (time - time/5));
+                animator.SetInteger("state",2);
+                stopGoText.text = "SLOW";
+                yield return new WaitForSeconds((float) time/5);
+                stopGoText.text = newText;
+                animator.SetInteger("state",3);
+                coroutineBegun = false;
+            }
+            else
+            {
+                yield return new WaitForSeconds((float) time);
+                animator.SetInteger("state",1);
+                stopGoText.text = newText;
+                coroutineBegun = false;  
+            }
+
+            
         }
     }
 }
