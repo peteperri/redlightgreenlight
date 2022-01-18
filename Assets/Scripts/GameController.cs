@@ -16,19 +16,22 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public Animator stoplightAnimator;
     public Animator playerAnimator;
+    public ParticleSystem winEffect;
     public GameObject player;
+    private Random rand = new Random();
     private int presses = 0;
     private bool coroutineBegun = false;
     private bool stopped = true;
     private bool dead = false;
     public bool won = false;
+    private bool particlesPlaying = false;
     private float currentSpeed = 0;
     public float moveSpeed;
     private float startTime;
     private readonly Vector2 start = new Vector3(-8.2f, -3.36f);
     public double maxTime;
     public double minTime;
-    Random rand = new Random();
+    
     
     void Start()
     {
@@ -95,6 +98,12 @@ public class GameController : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
+        }
+
+        if (won && !particlesPlaying)
+        {
+            Instantiate(winEffect, player.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+            particlesPlaying = true;
         }
 
         player.transform.position += new Vector3(currentSpeed, 0, 0);

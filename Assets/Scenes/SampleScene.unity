@@ -241,6 +241,7 @@ MonoBehaviour:
   scoreText: {fileID: 1376212319}
   stoplightAnimator: {fileID: 769336149}
   playerAnimator: {fileID: 1657415622}
+  winEffect: {fileID: 2773527532086434508, guid: 79b77ff2ddfebd44186aa89e539f7474, type: 3}
   player: {fileID: 1657415616}
   won: 0
   moveSpeed: 0.05
