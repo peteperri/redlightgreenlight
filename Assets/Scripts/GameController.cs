@@ -18,6 +18,10 @@ public class GameController : MonoBehaviour
     public Animator playerAnimator;
     public ParticleSystem winEffect;
     public GameObject player;
+    public AudioSource audioSource;
+    public AudioClip winSound;
+    public AudioClip loseSound;
+    public SpriteRenderer cookieRenderer;
     private Random rand = new Random();
     private int presses = 0;
     private bool coroutineBegun = false;
@@ -25,10 +29,11 @@ public class GameController : MonoBehaviour
     private bool dead = false;
     public bool won = false;
     private bool particlesPlaying = false;
+    private bool deathSoundPlaying;
     private float currentSpeed = 0;
     public float moveSpeed;
     private float startTime;
-    private readonly Vector2 start = new Vector3(-8.2f, -3.36f);
+    private readonly Vector2 start = new Vector3(-8.2f, -3.06f);
     public double maxTime;
     public double minTime;
     
@@ -103,7 +108,17 @@ public class GameController : MonoBehaviour
         if (won && !particlesPlaying)
         {
             Instantiate(winEffect, player.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+            audioSource.clip = winSound;
+            audioSource.Play();
             particlesPlaying = true;
+            cookieRenderer.enabled = false;
+        }
+
+        if (dead && !deathSoundPlaying)
+        {
+            audioSource.clip = loseSound;
+            audioSource.Play();
+            deathSoundPlaying = true;
         }
 
         player.transform.position += new Vector3(currentSpeed, 0, 0);
