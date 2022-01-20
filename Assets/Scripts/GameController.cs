@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public bool won = false;
     private bool particlesPlaying = false;
     private bool deathSoundPlaying;
-    private float currentSpeed = 0;
+    public float currentSpeed = 0;
     public float moveSpeed;
     private float startTime;
     private readonly Vector2 start = new Vector3(-8.2f, -3.06f);

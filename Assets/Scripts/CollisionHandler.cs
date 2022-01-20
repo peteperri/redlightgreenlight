@@ -8,6 +8,7 @@ public class CollisionHandler : MonoBehaviour
     {
         GameController controller = other.GetComponent<Collider2D>().GetComponent<GameController>();
         controller.moveSpeed = 0;
+        controller.currentSpeed = 0;
         controller.stopGoText.text = "CONGRATS";
         controller.statusText.text = "YOU WIN";
         controller.won = true;
