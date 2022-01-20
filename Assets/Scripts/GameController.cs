@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour
     public AudioClip loseSound;
     public SpriteRenderer cookieRenderer;
     private Random rand = new Random();
-    private int presses = 0;
     private bool coroutineBegun = false;
     private bool stopped = true;
     private bool dead = false;
@@ -32,6 +31,7 @@ public class GameController : MonoBehaviour
     private readonly Vector2 start = new Vector3(-8.2f, -3.06f);
     public double maxTime;
     public double minTime;
+    private float timer = 0;
     
     
     void Start()
@@ -42,8 +42,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-
-        scoreText.text = "Space Presses: " + presses.ToString();
+        
         double time = rand.NextDouble() * (maxTime - minTime) + minTime;
         if (dead || won)
         {
@@ -63,12 +62,8 @@ public class GameController : MonoBehaviour
                 stopped = false;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && !dead && !won)
-        {
-            presses++;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && (dead || won))
+        
+        if (Input.GetKeyDown(KeyCode.Space) && (dead || won))
         {
             SceneManager.LoadScene("SampleScene");
         }
@@ -118,6 +113,13 @@ public class GameController : MonoBehaviour
         }
 
         player.transform.position += new Vector3(currentSpeed, 0, 0);
+        if (!won && !dead)
+        {
+            timer += Time.deltaTime;
+            scoreText.text = "Time: " + timer.ToString("0.00");
+        }
+
+        
     }
 
     private IEnumerator WaitAndChangeText(double time, string newText)
