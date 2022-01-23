@@ -1,24 +1,0 @@
-
-hcsharpsquid:S2589;"DChange this condition so that it does not always evaluate to 'true'.(Œ†­8šåÄùæ/
-mcsharpsquid:S25896"DChange this condition so that it does not always evaluate to 'true'.(³ÃêÊıÿÿÿÿ8›åÄùæ/
-hcsharpsquid:S2589;"DChange this condition so that it does not always evaluate to 'true'.(Œ†­8œåÄùæ/
-{csharpsquid:S3776+"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(®±®“üÿÿÿÿ8åÄùæ/
-Ocsharpsquid:S3903"-Move 'GameController' into a named namespace.(Ü×Á‰ıÿÿÿÿ
-@csharpsquid:S2933"Make 'rand' 'readonly'.(‹ã‚ûÿÿÿÿ8¡åÄùæ/
-fcsharpsquid:S1104
-"DMake this field 'private' and encapsulate it in a 'public' property.(¢µãİüÿÿÿÿ
-acsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(Ì´Ğ›
-`csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(—êûQ
-acsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(Ç—êó
-acsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ŠØ®Ã
-fcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ñ±ıÿÿÿÿÿ
-mcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(¢Õ˜Şúÿÿÿÿ8¢åÄùæ/
-hcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(¤€Ñ8âóÊúæ/
-mcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(œÚëåûÿÿÿÿ8âóÊúæ/
-mcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(±òş¿ùÿÿÿÿ8âóÊúæ/
-hcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(áÊÅ™8îÒßúæ/
-hcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(‚¦‰£8£åÄùæ/
-hcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(Ñ±µ‰8²ÉÎç/
-mcsharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ı‘¨Èúÿÿÿÿ8£åÄùæ/
-fcsharpsquid:S1104 "DMake this field 'private' and encapsulate it in a 'public' property.(öÕ²ëúÿÿÿÿ
-mcsharpsquid:S1104!"DMake this field 'private' and encapsulate it in a 'public' property.(òğñûÿÿÿÿ8¤åÄùæ/

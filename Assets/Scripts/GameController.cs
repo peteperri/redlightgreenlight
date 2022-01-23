@@ -15,8 +15,11 @@ public class GameController : MonoBehaviour
     public ParticleSystem winEffect;
     public GameObject player;
     public AudioSource audioSource;
+    public AudioSource audioSource2;
     public AudioClip winSound;
     public AudioClip loseSound;
+    public AudioClip stopSound;
+    public AudioClip goSound;
     public SpriteRenderer cookieRenderer;
     private Random rand = new Random();
     private bool coroutineBegun = false;
@@ -128,6 +131,8 @@ public class GameController : MonoBehaviour
         {
             if (newText.Equals("STOP"))
             {
+                audioSource2.clip = goSound;
+                audioSource2.Play();
                 yield return new WaitForSeconds((float) (time - time/5));
                 stoplightAnimator.SetInteger("state",2);
                 stopGoText.text = "SLOW";
@@ -138,6 +143,8 @@ public class GameController : MonoBehaviour
             }
             else
             {
+                audioSource2.clip = stopSound;
+                audioSource2.Play();
                 yield return new WaitForSeconds((float) time);
                 stoplightAnimator.SetInteger("state",1);
                 stopGoText.text = newText;
